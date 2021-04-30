@@ -1,17 +1,18 @@
-from ctypes import Structure, c_int, c_float, c_void_p, cdll, CFUNCTYPE, byref
+from ctypes import cdll
 import pathlib
 import unittest
 
-libname = pathlib.Path().absolute() / 'build' / 'libtest.so'
-libtest = cdll.LoadLibrary(libname)
 
+class CTestWrapper(unittest.TestCase):
+    def setUp(self):
+        libname = pathlib.Path() / 'build' / 'libtest.so'
+        self.libtest = cdll.LoadLibrary(libname)
 
-class TestAreas(unittest.TestCase):
     def test_square_area(self):
-        self.assertEqual(1, libtest.test_square_area())
+        self.assertEqual(1, self.libtest.test_square_area())
 
     def test_triangle_area(self):
-        self.assertEqual(1, libtest.test_triangle_area())
+        self.assertEqual(1, self.libtest.test_triangle_area())
 
 
 if __name__ == '__main__':
