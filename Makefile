@@ -8,5 +8,10 @@ build/libshape.so: house.c house.h square.c square.h triangle.c triangle.h ishap
 	cd build && gcc -c -Wall -Werror -fpic ../house.c ../square.c ../triangle.c
 	gcc -shared build/*.o -o build/libshape.so 
 
+build/libtest.so: house.c house.h square.c square.h triangle.c triangle.h ishapearea.h test.c
+	mkdir -p build
+	cd build && gcc -c -Wall -Werror -fpic ../house.c ../square.c ../triangle.c ../test.c
+	gcc -shared build/*.o -o build/libtest.so 
+
 clean:
 	rm -rf ./build/
