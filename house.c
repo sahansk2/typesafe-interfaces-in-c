@@ -1,15 +1,15 @@
 #include "house.h"
 
 float House_area(struct House *self) {
-    float roof_area = self->roof.ishapearea.funcs->area(self->roof.ishapearea.vself);
-    float body_area = self->body.ishapearea.funcs->area(self->body.ishapearea.vself);
+    float roof_area = Triangle_area(&self->roof);
+    float body_area = Square_area(&self->body);
     return roof_area + body_area;
 }
 
-float vHouse_area(void* vself) {
+float _House_area(void* vself) {
     return House_area((struct House*)vself);
 }
 
 const struct IShapeAreaFuncs house_ishapearea = {
-    .area = vHouse_area
+    .area = _House_area
 };

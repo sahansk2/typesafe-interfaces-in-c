@@ -9,7 +9,7 @@ struct Square {
 };
 
 float Square_area(struct Square* self);
-float vSquare_area(void* vself);
+float _Square_area(void* vself);
 
 void Square_set_id(struct Square* self, int id);
 

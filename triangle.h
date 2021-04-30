@@ -10,7 +10,7 @@ struct Triangle {
 };
 
 float Triangle_area(struct Triangle* self); 
-float vTriangle_area(void* vself); 
+float _Triangle_area(void* vself); 
 
 void Triangle_set_id(struct Triangle* self, int id);
 

@@ -4,7 +4,7 @@ float Square_area(struct Square* self) {
     return (self->length) * (self->length);
 }
 
-float vSquare_area(void* vself) {
+float _Square_area(void* vself) {
     return Square_area((struct Square*)vself);
 }
 
@@ -17,5 +17,5 @@ int Square_get_id(struct Square* self) {
 }
 
 const struct IShapeAreaFuncs square_ishapearea = {
-    .area = vSquare_area
+    .area = _Square_area
 };

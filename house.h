@@ -12,7 +12,7 @@ struct House {
 };
 
 float House_area(struct House *self);
-float vHouse_area(void* vself);
+float _House_area(void* vself);
 
 extern const struct IShapeAreaFuncs house_ishapearea;
 

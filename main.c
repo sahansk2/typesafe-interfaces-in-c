@@ -4,8 +4,8 @@
 #include "triangle.h"
 #include "house.h"
 
-void printArea(struct IShapeArea const* shapeid) {
-    printf("This shape has an area of %f\n", shapeid->funcs->area(shapeid->vself));
+void printArea(struct IShapeArea const* ishape) {
+    printf("This shape has an area of %f\n", ishape->funcs->area(ishape->vself));
 }
 
 int compareArea(struct IShapeArea const* ishape1, struct IShapeArea const* ishape2) {
